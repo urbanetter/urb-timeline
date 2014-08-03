@@ -1,0 +1,9 @@
+{
+  "name": "urb-timeline",
+  "version": "0.0.1",
+  "keywords": "polymer, web-components",
+  "main": "urb-timeline.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.1"
+  }
+}
