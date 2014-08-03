@@ -12,13 +12,13 @@ Element providing solution to no problem in particular.
 @status alpha
 @homepage http://urbanetter.github.io/urb-timeline
 -->
-<polymer-element name="urb-timeline" attributes="notitle">
+<polymer-element name="urb-timeline" attributes="duration markIn markOut">
 
   <template>
 
     <link rel="stylesheet" href="urb-timeline.css" />
 
-    <content></content>
+    <div id="segment"></div>
 
   </template>
 
@@ -33,33 +33,39 @@ Element providing solution to no problem in particular.
        */
 
       /**
-       * The `notitle` attribute does not yet have a purpose.
+       * Total duration of the video in seconds
        *
-       * @attribute notitle
-       * @type string
+       * @attribute duration
+       * @type float
        */
-      notitle: '',
+      duration: 10,
 
       /**
-       * The `aProp` is a property that does something cool.
+       * Mark in time
        *
-       * @property aProp
-       * @type bool
+       * @attribute markIn
+       * @type float
        */
-      aProp: false,
-
-      ready: function() {
-      },
+      markIn: 2,
 
       /**
-       * The `task` method does no work at this time.
+       * Mark out time
        *
-       * @method task
-       * @return {Object} Returns undefined.
-       * @param {String} dummy Serves no purpose today.
+       * @attribute markOut
+       * @type float
        */
-      task: function(dummy) {
-      }
+      markOut: 5,
+
+	  update: function() {
+		var width = parseInt((this.markOut - this.markIn) * 100 / this.duration, 10);
+		this.$.segment.style.width = width + "%";
+		var left = parseInt(this.markIn * 100 / this.duration, 10);
+		this.$.segment.style.marginLeft = left + '%';	
+	  },
+	
+	  domReady: function() {
+		this.update();
+	  }
 
     });
 

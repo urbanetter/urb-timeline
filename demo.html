@@ -12,7 +12,17 @@
 
   <p>An `urb-timeline` looks like this:</p>
 
-  <urb-timeline></urb-timeline>
+<style>
+urb-timeline {
+	border-color: blue;
+}
+polyfill-next-selector { content: 'urb-timeline #segment'; }
+urb-timeline::shadow #segment {
+	background-color: red;
+}
+</style>
+
+  <urb-timeline markIn="1" markOut="8" duration="20"></urb-timeline>
 
 </body>
 </html>
