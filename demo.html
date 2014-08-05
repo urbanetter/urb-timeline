@@ -6,6 +6,8 @@
 
   <script src="../platform/platform.js"></script>
   <link rel="import" href="urb-timeline.html">
+  <link rel="import" href="urb-timeline-segment.html">
+
 
 </head>
 <body unresolved>
@@ -16,13 +18,14 @@
 urb-timeline {
 	border-color: blue;
 }
-polyfill-next-selector { content: 'urb-timeline #segment'; }
-urb-timeline::shadow #segment {
+urb-timeline-segment {
 	background-color: red;
 }
 </style>
 
-  <urb-timeline markIn="1" markOut="8" duration="20"></urb-timeline>
+  <urb-timeline duration="20">
+    <urb-timeline-segment markIn="2" markOut="12"></urb-timeline-segment>
+  </urb-timeline>
 
 </body>
 </html>

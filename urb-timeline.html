@@ -12,13 +12,13 @@ Element providing solution to no problem in particular.
 @status alpha
 @homepage http://urbanetter.github.io/urb-timeline
 -->
-<polymer-element name="urb-timeline" attributes="duration markIn markOut">
+<polymer-element name="urb-timeline" attributes="duration">
 
   <template>
 
     <link rel="stylesheet" href="urb-timeline.css" />
 
-    <div id="segment"></div>
+	<content></content>
 
   </template>
 
@@ -26,46 +26,12 @@ Element providing solution to no problem in particular.
 
     Polymer('urb-timeline', {
       /**
-       * The `noevent` event is not actually fired from here,
-       * we document it as an example of documenting events.
-       *
-       * @event noevent
-       */
-
-      /**
        * Total duration of the video in seconds
        *
        * @attribute duration
        * @type float
        */
-      duration: 10,
-
-      /**
-       * Mark in time
-       *
-       * @attribute markIn
-       * @type float
-       */
-      markIn: 2,
-
-      /**
-       * Mark out time
-       *
-       * @attribute markOut
-       * @type float
-       */
-      markOut: 5,
-
-	  update: function() {
-		var width = parseInt((this.markOut - this.markIn) * 100 / this.duration, 10);
-		this.$.segment.style.width = width + "%";
-		var left = parseInt(this.markIn * 100 / this.duration, 10);
-		this.$.segment.style.marginLeft = left + '%';	
-	  },
-	
-	  domReady: function() {
-		this.update();
-	  }
+      duration: 10
 
     });
 

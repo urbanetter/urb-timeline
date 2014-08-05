@@ -1,0 +1,58 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <urb-timeline></urb-timeline>
+
+@element urb-timeline
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@homepage http://urbanetter.github.io/urb-timeline
+-->
+<polymer-element name="urb-timeline-segment" attributes="markIn markOut">
+
+  <template>
+
+    <link rel="stylesheet" href="urb-timeline-segment.css" />
+
+  </template>
+
+  <script>
+
+    Polymer('urb-timeline-segment', {
+
+      /**
+       * Mark in time
+       *
+       * @attribute markIn
+       * @type float
+       */
+      markIn: 2,
+
+      /**
+       * Mark out time
+       *
+       * @attribute markOut
+       * @type float
+       */
+      markOut: 5,
+
+	  update: function() {
+		var width = parseInt((this.markOut - this.markIn) * 100 / this.parentNode.duration, 10);
+		this.style.width = width + "%";
+		var left = parseInt(this.markIn * 100 / this.parentNode.duration, 10);
+		this.style.marginLeft = left + '%';	
+	  },
+	
+	  domReady: function() {
+		this.update();
+	  }
+
+    });
+
+  </script>
+
+</polymer-element>
